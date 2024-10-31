@@ -2,47 +2,28 @@ import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
+public class VehicleRentalSystem {
 
-        // Create some customers
-        Customer Nahomcustomer1 = new Customer("Nahom Hailu", "Muyenga Kampala St", 26);
-        Customer Nahomcustomer2 = new Customer("Hana Debay", "Soya Kampala St.", 28);
-        Customer Nahomcustomer3 = new Customer("Mirgisa Teketa", "Gulu Uganda St.", 30);
-        Customer Nahomcustomer4 = new Customer("Musa Musa", "Kasanga Uganda St.", 34);
-        Customer Nahomcustomer5 = new Customer("Mundez Mundez", "Kabalagala Uganda St.", 32);
+        public static void main (String[] args) {
 
-        // Create some vehicles
-        VehicleInformation nahomvehicle1 = new VehicleInformation("UBT211", "Red", 60);
-        VehicleInformation nahomvehicle2 = new VehicleInformation("UBT321", "Blue", 85);
-        VehicleInformation nahomvehicle3 = new VehicleInformation("UBT565", "Grey", 90);
-        VehicleInformation nahomvehicle4 = new VehicleInformation("UBT845", "White", 100);
+            Toyota rush = new Toyota("NAHOM784", 150);
+            Toyota v8 = new Toyota("Nahom333", 850);
+            Toyota vitz = new Toyota("UBT213", 300);
+            SportBike sportBike = new SportBike("PRINCE12", 30);
 
-        // Rent vehicles for the customer
-        nahomvehicle1.rentVehicle(Nahomcustomer1, 3);
-        nahomvehicle2.rentVehicle(Nahomcustomer2, 5);
-        nahomvehicle2.rentVehicle(Nahomcustomer3, 10);
-        nahomvehicle3.rentVehicle(Nahomcustomer4, 30);
-        nahomvehicle4.rentVehicle(Nahomcustomer5, 1);
+            Customer nahcustomer1 = new Customer("Nahom Hailu", "Gulu Kampala St.", 26);
+            Customer nahcustomer2 = new Customer("Hana Debay", "Kasanga Kampala St.", 28);
+            Customer nahcustomer3 = new Customer("Yosef Kesete", "Soya Kampala St.", 35);
 
-        // Return vehicles from the customer
-        nahomvehicle1.returnVehicle();
-        nahomvehicle2.returnVehicle();
+            rush.printVehicleDetails();
+            rush.rentVehicle(nahcustomer1);
 
-        // Calculate total rental price for a customer
-        int totalPrice = nahomvehicle1.calculateTotalRentalPrice(Nahomcustomer1);
-        System.out.println("Total rental price for " + Nahomcustomer1.getName() + ": $" + totalPrice);
-        System.out.println("Total rental price for " + Nahomcustomer2.getName() + ": $" + totalPrice);
-        System.out.println("Total rental price for " + Nahomcustomer3.getName() + ": $" + totalPrice);
-        System.out.println("Total rental price for " + Nahomcustomer4.getName() + ": $" + totalPrice);
-        System.out.println("Total rental price for " + Nahomcustomer5.getName() + ": $" + totalPrice);
+            v8.printVehicleDetails();
+            v8.rentVehicle(nahcustomer2);
 
-        // Get a list of max last 5 rentals per vehicle
-        List<Rental> lastFiveRentals = nahomvehicle4.getLastFiveRentals();
-        System.out.println("Last 5 rentals for vehicle " + nahomvehicle4.getLicensePlate() + ":");
-        for (Rental rental : lastFiveRentals) {
-            System.out.println("- Customer: " + rental.getCustomer().getName() + ", Days: " + rental.getDays());
+            Customer nahcustomer4 = new Customer("Prince", "Muyenga", 28);
+            sportBike.printVehicleDetails();
+            sportBike.getRentalPrice();
         }
 
-    }
 }

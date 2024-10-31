@@ -1,2 +1,6 @@
-package PACKAGE_NAME;public class Toyota {
+class Toyota extends Car{
+
+    public Toyota(String licensceplate, double rentalPrice) {
+        super(licensceplate, rentalPrice);
+    }
 }
