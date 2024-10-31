@@ -1,9 +1,18 @@
-interface Vehicle {
-    String getLicensePlate();
-    String getVehicleType();
-    double getRentalPricePerDay();
-    void printVehicleDetails();
-    void printRentedBy();
-    void rentVehicle(Customer customer);
-    void returnVehicle(Customer customer);
+import java.util.ArrayList;
+import java.util.List;
+
+class Vehicle {
+    private String licensePlate;
+    double rentalPrice;
+    boolean isRented;
+
+    public Vehicle(String licensePlate, double rentalPrice) {
+        this.licensePlate = licensePlate;
+        this.rentalPrice = rentalPrice;
+        this.isRented = false;
+    }
+
+    public boolean isFree() {
+        return !isRented;
+    }
 }

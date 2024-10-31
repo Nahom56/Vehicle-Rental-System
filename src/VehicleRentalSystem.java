@@ -1,29 +1,28 @@
-import java.util.List;
+class VehicleRentalSystem {
+    public static void main(String[] args) {
+        // Create vehicles
+        Motorcycle motorcycle = new Motorcycle("M12345", 50.0);
+        Car car = new Car("UBT457", 80.0);
+        Car car2 = new Car("UBT456", 150.0);
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class VehicleRentalSystem {
+        Car car3 = new Car("UBT477", 200.0);
 
-        public static void main (String[] args) {
+        Truck truck = new Truck("UBT123", 200.0);
+        SportBike sportBike = new SportBike("UBT123", 150.0);
 
-            Toyota rush = new Toyota("NAHOM784", 150);
-            Toyota v8 = new Toyota("Nahom333", 850);
-            Toyota vitz = new Toyota("UBT213", 300);
-            SportBike sportBike = new SportBike("PRINCE12", 30);
+        // Create customer
+        Customer customer1 = new Customer("Nahom Hailu", "Kampala St", 30);
+        Customer customer2 = new Customer("Hana Debay", "Kampala St", 30);
 
-            Customer nahcustomer1 = new Customer("Nahom Hailu", "Gulu Kampala St.", 26);
-            Customer nahcustomer2 = new Customer("Hana Debay", "Kasanga Kampala St.", 28);
-            Customer nahcustomer3 = new Customer("Yosef Kesete", "Soya Kampala St.", 35);
+        // Rent vehicles
+        customer1.rentVehicle(motorcycle);
+        customer1.rentVehicle(car);
 
-            rush.printVehicleDetails();
-            rush.rentVehicle(nahcustomer1);
+        // Calculate total rental price
+        double totalRentalPrice = customer1.calculateTotalRentalPrice();
+        System.out.println("Total rental price of " + customer1.getName() + " is $" + totalRentalPrice);
 
-            v8.printVehicleDetails();
-            v8.rentVehicle(nahcustomer2);
-
-            Customer nahcustomer4 = new Customer("Prince", "Muyenga", 28);
-            sportBike.printVehicleDetails();
-            sportBike.getRentalPrice();
-        }
-
+        // Return vehicle
+        customer2.returnVehicle(motorcycle);
+    }
 }
